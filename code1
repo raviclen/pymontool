@@ -1,0 +1,11 @@
+#!/usr/bin/python2.7
+
+from subprocess import PIPE,Popen
+
+p1=subprocess.Popen(["ps", "-A"], stdout=subprocess.PIPE)
+output, error = p1.communicate
+
+if 'crond' in output:
+	print "Crond service is running:"
+else:
+	print "Crond service is not running/absent"
